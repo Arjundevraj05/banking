@@ -1,14 +1,14 @@
-import type { Config } from "tailwindcss";
-
-const config = {
+module.exports = {
   darkMode: ["class"],
   content: [
+    "./index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
     "./constants/**/*.{ts,tsx}",
   ],
+  mode: "jit",
   prefix: "",
   theme: {
     container: {
@@ -20,6 +20,11 @@ const config = {
     },
     extend: {
       colors: {
+        darkBlue:"#424874",
+        primary: "#00040f",
+        secondary: "#00f6ff",
+        dimWhite: "rgba(255, 255, 255, 0.7)",
+        dimBlue: "rgba(9, 151, 124, 0.1)",
         fill: {
           1: "rgba(255, 255, 255, 0.10)",
         },
@@ -84,6 +89,7 @@ const config = {
         creditCard: "8px 10px 16px 0px rgba(0, 0, 0, 0.05)",
       },
       fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
         inter: "var(--font-inter)",
         "ibm-plex-serif": "var(--font-ibm-plex-serif)",
       },
@@ -102,8 +108,15 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    screens: {
+      xs: "480px",
+      ss: "620px",
+      sm: "768px",
+      md: "1060px",
+      lg: "1200px",
+      xl: "1700px",
+      "2xl": "1400px",
+    },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
-
-export default config;
+};

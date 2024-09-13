@@ -42,6 +42,13 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #7878a3;
 }
+.gradient-text {
+  background: linear-gradient(90deg, #3A3D97, #6A6EB0); /* Gradient from #3A3D97 to a lighter shade */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
 
 @layer utilities {
   .input-class {
@@ -201,11 +208,11 @@
   }
 
   .transactions-account {
-    @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-blue-600 px-4 py-5 md:flex-row;
+    @apply flex flex-col justify-between gap-4 rounded-lg border-y bg-[#3A3D97] px-4 py-5 md:flex-row;
   }
 
   .transactions-account-balance {
-    @apply flex-center flex-col  gap-2 rounded-md bg-blue-25/20 px-4 py-2 text-white;
+    @apply flex-center flex-col  gap-2 rounded-md bg-[#6A6DB7] px-4 py-2 text-white;
   }
 
   .header-box {
@@ -213,11 +220,11 @@
   }
 
   .header-box-title {
-    @apply text-24 lg:text-30 font-semibold text-gray-900;
+    @apply text-24 lg:text-30 font-poppins font-semibold text-gray-900;
   }
 
   .header-box-subtext {
-    @apply text-14 lg:text-16 font-normal text-gray-600;
+    @apply text-14 lg:text-16 font-poppins text-gray-600;
   }
 
   /* Bank Card */
@@ -258,7 +265,7 @@
 
   /* PlaidLink */
   .plaidlink-primary {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply text-16 rounded-lg border  bg-[#3A3D97] font-semibold text-white shadow-form;
   }
 
   .plaidlink-ghost {
@@ -271,7 +278,7 @@
 
   /* Auth */
   .auth-asset {
-    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-sky-1 max-lg:hidden;
+    @apply flex h-screen w-full sticky top-0 items-center justify-end bg-[#87CEEB] max-lg:hidden;
   }
 
   /* Auth Form */
@@ -292,11 +299,18 @@
   }
 
   .form-btn {
-    @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
+    @apply text-16 rounded-lg border bg-[#3A3D97] font-semibold text-white shadow-form;
+    transition: background-color 0.3s ease;
   }
+  
+  .form-btn:hover {
+    background-color: #2C2F73; /* Darker blue for hover effect */
+  }
+  
+  
 
   .form-link {
-    @apply text-14 cursor-pointer font-medium text-bankGradient;
+    @apply text-14 cursor-pointer font-medium gradient-text;
   }
 
   /* Payment Transfer */
@@ -321,7 +335,10 @@
   }
 
   .payment-transfer_btn {
-    @apply text-14 w-full bg-bank-gradient font-semibold text-white shadow-form !important;
+    @apply text-14 w-full bg-[#3A3D97] font-semibold text-white shadow-form !important;
+  }
+  .payment-transfer_btn:hover {
+    background-color: #2C2F73; /* Darker blue for hover effect */
   }
 
   /* Root Layout */
