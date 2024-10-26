@@ -135,21 +135,22 @@ export const createLinkToken = async (user: User) => {
   try {
     const tokenParams = {
       user: {
-        client_user_id: user.$id
+        client_user_id: user.$id, // Ensure this is a valid user ID
       },
-      client_name: `${user.firstName} ${user.lastName}`,
-      products: ['auth'] as Products[],
-      language: 'en',
-      country_codes: ['US'] as CountryCode[],
-    }
+      client_name: `${user.firstName} ${user.lastName}`, // Client name is dynamically set
+      products: ['auth'] as Products[], // Define the products to use
+      language: 'en', // Language preference
+      country_codes: ['US'] as CountryCode[], // Define the supported country codes
+    };
 
-    const response = await plaidClient.linkTokenCreate(tokenParams);
+    const response = await plaidClient.linkTokenCreate(tokenParams); // Call Plaid API to create the link token
 
-    return parseStringify({ linkToken: response.data.link_token })
+    return parseStringify({ linkToken: response.data.link_token }); // Return the link token
   } catch (error) {
-    console.log(error);
+    console.error('Error creating link token:', error); // Improved error logging
+    
   }
-}
+};
 
 export const createBankAccount = async ({
   userId,
